@@ -1,0 +1,62 @@
+console_node:
+  ros__parameters:
+    rec_secs: 4.0
+    sample_rate: 16000
+    channels: 1
+    transcribe_timeout_sec: 60.0
+    transcribe_model: "gpt-4o-mini-transcribe"
+
+intent_node:
+  ros__parameters:
+    use_openai: true
+    openai_timeout_sec: 40.0
+    intent_model: "gpt-4.1"
+    default_takeoff_alt_m: 1.5
+
+oak_node:
+  ros__parameters:
+    width: 640
+    height: 480
+    fps: 15.0
+    publish_depth: true
+    show: false
+
+detect_node:
+  ros__parameters:
+    model_path: "yolov8n.pt"
+    conf: 0.35
+    imgsz: 640
+    detect_hz: 5.0
+    show: false
+
+mission_node:
+  ros__parameters:
+    default_takeoff_alt_m: 1.5
+    stop_dist_m: 1.0
+    center_deadband: 0.12
+    search_yaw_rate_dps: 18.0
+    max_yaw_rate_dps: 40.0
+    yaw_k: 30.0
+    forward_k: 0.45
+    max_forward_mps: 0.35
+
+telemetry_node:
+  ros__parameters:
+    px4_ns: ""
+    publish_hz: 5.0
+
+safe_bridge_node:
+  ros__parameters:
+    mode: "fake"
+
+fake_drone_node:
+  ros__parameters:
+    climb_mps: 0.6
+    move_mps: 0.5
+    rotate_dps: 45.0
+    publish_hz: 10.0
+
+status_node:
+  ros__parameters:
+    det_print_hz: 1.0
+    state_print_hz: 2.0
